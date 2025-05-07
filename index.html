@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webflow - Creative Digital Agency</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ff87, #60efff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(96,239,255,0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            background: linear-gradient(45deg, #00ff87, #60efff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #888;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        .portfolio {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #00ff87, #60efff);
+            color: #0a0a0a;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .services {
+            padding: 100px 20px;
+            background: #111;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            padding: 30px;
+            background: #1a1a1a;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        footer {
+            background: #111;
+            padding: 40px 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Webflow</div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>We Create Digital Experiences</h1>
+            <p>Transforming ideas into stunning digital realities</p>
+            <a href="#contact" class="cta-button">Start Your Project</a>
+        </div>
+    </section>
+
+    <section class="portfolio">
+        <h2>Can be created.</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d" alt="Project 1">
+                <div class="portfolio-overlay">
+                    <h3>E-commerce Platform</h3>
+                    <p>Web Design & Development</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="Project 2">
+                <div class="portfolio-overlay">
+                    <h3>Corporate Website</h3>
+                    <p>Branding & Web Design</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" alt="Project 3">
+                <div class="portfolio-overlay">
+                    <h3>Mobile App</h3>
+                    <p>UI/UX Design</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Web Design</h3>
+                <p>Creating beautiful, responsive websites that engage users</p>
+            </div>
+            <div class="service-card">
+                <h3>Development</h3>
+                <p>Building robust and scalable web applications</p>
+            </div>
+            <div class="service-card">
+                <h3>Branding</h3>
+                <p>Crafting unique brand identities that stand out</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Let's Create Something Amazing</h2>
+        <p>Get in touch to start your project</p>
+        <a href="mailto:contact@webflow.com" class="cta-button">Contact Us</a>
+    </section>
+
+    <footer>
+        <p>© 2024 Webflow. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+<style>
+    /* Updated color scheme and animations */
+    :root {
+        --gradient-1: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+        --gradient-2: linear-gradient(45deg, #FFE66D, #4ECDC4);
+        --accent-1: #FF6B6B;
+        --accent-2: #4ECDC4;
+        --accent-3: #FFE66D;
+    }
+
+    .hero::before {
+        background: radial-gradient(circle at center, rgba(78,205,196,0.2) 0%, rgba(255,107,107,0.1) 30%, transparent 70%);
+        animation: rotate 15s linear infinite, pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0% { opacity: 0.5; }
+        50% { opacity: 0.8; }
+        100% { opacity: 0.5; }
+    }
+
+    .logo {
+        background: var(--gradient-1);
+    }
+
+    .hero h1 {
+        background: var(--gradient-2);
+    }
+
+    .portfolio-item::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: var(--gradient-1);
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 1;
+    }
+
+    .portfolio-item:hover::before {
+        opacity: 0.3;
+    }
+
+    .service-card {
+        border: 2px solid transparent;
+        background: 
+            linear-gradient(#1a1a1a, #1a1a1a) padding-box,
+            var(--gradient-1) border-box;
+        animation: borderFlow 3s linear infinite;
+    }
+
+    @keyframes borderFlow {
+        0% { border-image: linear-gradient(0deg, var(--accent-1), var(--accent-2)) 1; }
+        50% { border-image: linear-gradient(180deg, var(--accent-2), var(--accent-3)) 1; }
+        100% { border-image: linear-gradient(360deg, var(--accent-3), var(--accent-1)) 1; }
+    }
+
+    .cta-button {
+        background: var(--gradient-1);
+        animation: buttonGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes buttonGlow {
+        0% { box-shadow: 0 0 0 rgba(78,205,196,0); }
+        50% { box-shadow: 0 0 20px rgba(78,205,196,0.5); }
+        100% { box-shadow: 0 0 0 rgba(78,205,196,0); }
+    }
+</style>
+<style>
+    .logo {
+        font-size: 28px;
+        font-weight: bold;
+        color: #000;
+        -webkit-text-fill-color: #000;
+        background: none;
+    }
+
+    .hero h1 {
+        font-size: 5rem;
+        margin-bottom: 30px;
+        line-height: 1.2;
+        color: #000;
+        -webkit-text-fill-color: #000;
+        background: none;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+        color: #000;
+        margin-bottom: 40px;
+        animation: fadeInUp 1s ease-out 0.3s backwards;
+    }
+</style>
